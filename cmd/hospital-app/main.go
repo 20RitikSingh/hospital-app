@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/20ritiksingh/hospital-app/internal/config"
+	database "github.com/20ritiksingh/hospital-app/internal/db"
 	"github.com/20ritiksingh/hospital-app/internal/handlers"
 	"github.com/20ritiksingh/hospital-app/internal/middleware"
 	"github.com/20ritiksingh/hospital-app/internal/repository"
@@ -29,15 +30,15 @@ func main() {
 	}
 
 	// migrate the database
-	// err = database.Migrate(db)
-	// if err != nil {
-	// 	log.Fatal("Migration failed: ", err)
-	// } else {
-	// 	log.Println("Migration successful")
-	// }
+	err = database.Migrate(db)
+	if err != nil {
+		log.Fatal("Migration failed: ", err)
+	} else {
+		log.Println("Migration successful")
+	}
 
 	// Seed the database
-	// err = database.SeedData(db)
+	err = database.SeedData(db)
 	if err != nil {
 		log.Fatalf("could not seed db: %v", err)
 	}

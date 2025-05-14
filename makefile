@@ -11,6 +11,9 @@ SRC=./cmd/hospital-app
 
 .PHONY: build run test clean
 
+include .env
+export
+
 build:
 	@echo "Building the application..."
 	@go build -o $(BINARY) $(SRC)

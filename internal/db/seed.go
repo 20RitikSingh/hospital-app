@@ -48,8 +48,8 @@ func SeedData(db *gorm.DB) error {
 
 	// Seed Patients
 	patients := []models.Patient{
-		{Name: "John Doe", Age: 45, Gender: models.Male},
-		{Name: "Jane Smith", Age: 36, Gender: models.Female},
+		{Name: "John Doe", Age: 45, Gender: models.Male, Email: "john@mail.com"},
+		{Name: "Jane Smith", Age: 36, Gender: models.Female, Email: "jane@mail.com"},
 	}
 	for _, p := range patients {
 		if err := db.Create(&p).Error; err != nil {
