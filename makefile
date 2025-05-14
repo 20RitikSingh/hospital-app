@@ -11,8 +11,9 @@ SRC=./cmd/hospital-app
 
 .PHONY: build run test clean
 
-include .env
-export
+# For debugging purposes, you can uncomment the following lines to include environment variables
+# include .env
+# export
 
 build:
 	@echo "Building the application..."
